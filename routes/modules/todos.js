@@ -31,7 +31,7 @@ router.get('/:id/edit', (req, res) => {
   const UserId = req.user.id
   const id = req.params.id
   return Todo.findOne({ where: { UserId, id } })
-    .then(todo => res.render('edit', { todo: todo.get() }))
+    .then(todo => res.render('edit', { todo: todo.toJSON() }))
     .catch(err => console.log(err))
 })
 //update todo
